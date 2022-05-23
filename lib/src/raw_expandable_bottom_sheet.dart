@@ -194,7 +194,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
                 animation: _controller,
                 builder: (_, Widget? child) {
                   if (_controller.isAnimating) {
-                    print(_controller.value);
+                    //print(_controller.value);
                     _positionOffset = _animationMinOffset +
                         _controller.value * _draggableHeight;
                   }
@@ -235,7 +235,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _handleAnimationStatusUpdate(AnimationStatus status) {
-    print('animation status');
+    //print('animation status');
     if (status == AnimationStatus.completed) {
       if (_oldStatus == AnimationStatus.forward) {
         setState(() {
@@ -259,7 +259,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _afterUpdateWidgetBuild(bool isFirstBuild) {
-    print('animation after update');
+    //print('animation after update');
     double headerHeight = _headerKey.currentContext!.size!.height;
     double footerHeight = _footerKey.currentContext!.size!.height;
     double contentHeight = _contentKey.currentContext!.size!.height;
@@ -287,7 +287,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _positionOutOfBounds() {
-    print('_positionOutOfBounds');
+    //print('_positionOutOfBounds');
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
@@ -304,9 +304,9 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _animateOnIsAnimating() {
-    print('_animateOnIsAnimating');
+    //print('_animateOnIsAnimating');
     if (_controller.isAnimating) {
-      //_controller.stop();
+      _controller.stop();
     }
   }
 
@@ -334,11 +334,13 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _dragUpdate(DragUpdateDetails details) {
-    print('_dragUpdate');
     if (!_useDrag) return;
     double offset = details.localPosition.dy;
     double newOffset =
         _startPositionAtDragDown! + offset - _startOffsetAtDragDown;
+
+    print('offset: $offset');
+    print('newOffset: $newOffset');
     if (_minOffset <= newOffset && _maxOffset >= newOffset) {
       setState(() {
         _positionOffset = newOffset;
@@ -354,6 +356,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
           _positionOffset = _maxOffset;
         });
       }
+      print('_positionOffset: $_positionOffset');
     }
   }
 
