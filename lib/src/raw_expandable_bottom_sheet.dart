@@ -276,12 +276,14 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         footerHeight -
         checkedPersistentContentHeight;
 
+    
     if (!isFirstBuild) {
       _positionOutOfBounds();
     } else {
       setState(() {
         _positionOffset = _maxOffset;
         _draggableHeight = _maxOffset - _minOffset;
+        print('$_draggableHeight');
       });
     }
   }
