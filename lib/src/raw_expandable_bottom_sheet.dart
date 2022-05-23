@@ -259,6 +259,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _afterUpdateWidgetBuild(bool isFirstBuild) {
+    print('animation after update');
     double headerHeight = _headerKey.currentContext!.size!.height;
     double footerHeight = _footerKey.currentContext!.size!.height;
     double contentHeight = _contentKey.currentContext!.size!.height;
@@ -286,6 +287,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _positionOutOfBounds() {
+    print('_positionOutOfBounds');
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
@@ -302,6 +304,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _animateOnIsAnimating() {
+    print('_animateOnIsAnimating');
     if (_controller.isAnimating) {
       //_controller.stop();
     }
@@ -331,6 +334,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _dragUpdate(DragUpdateDetails details) {
+    print('_dragUpdate');
     if (!_useDrag) return;
     double offset = details.localPosition.dy;
     double newOffset =
