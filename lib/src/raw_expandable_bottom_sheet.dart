@@ -288,6 +288,10 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
 
   void _positionOutOfBounds() {
     //print('_positionOutOfBounds');
+    print('_positionOffset: $_positionOffset');
+    print('_minOffset: $_minOffset');
+    print('_maxOffset: $_maxOffset');
+    print('--------------------------------');
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
@@ -339,8 +343,8 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
     double newOffset =
         _startPositionAtDragDown! + offset - _startOffsetAtDragDown;
 
-    print('offset: $offset');
-    print('newOffset: $newOffset');
+    // print('offset: $offset');
+    // print('newOffset: $newOffset');
     if (_minOffset <= newOffset && _maxOffset >= newOffset) {
       setState(() {
         _positionOffset = newOffset;
@@ -356,7 +360,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
           _positionOffset = _maxOffset;
         });
       }
-      print('_positionOffset: $_positionOffset');
+      //print('_positionOffset: $_positionOffset');
     }
   }
 
