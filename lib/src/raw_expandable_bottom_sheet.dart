@@ -292,13 +292,13 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
     print('_minOffset: $_minOffset');
     print('_maxOffset: $_maxOffset');
     print('--------------------------------');
-    if (_positionOffset! < _minOffset) {
+    if (_positionOffset! < _minOffset + _minOffset * 0.1) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
       //_animateToMin();
       _animateToBottom();
     } else {
-      if (_positionOffset! > _maxOffset) {
+      if (_positionOffset! > _maxOffset * 0.9) {
         //the extend is smaller than persistentContentHeight
         _callCallbacks = false;
         //_animateToMax();
