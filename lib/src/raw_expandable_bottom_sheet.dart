@@ -295,12 +295,14 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
-      _animateToMin();
+      //_animateToMin();
+      _animateToBottom();
     } else {
       if (_positionOffset! > _maxOffset) {
         //the extend is smaller than persistentContentHeight
         _callCallbacks = false;
-        _animateToMax();
+        //_animateToMax();
+        _animateToTop();
       } else {
         _draggableHeight = _maxOffset - _minOffset;
       }
