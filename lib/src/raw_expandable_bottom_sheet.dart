@@ -234,6 +234,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _handleAnimationStatusUpdate(AnimationStatus status) {
+    print('animation status');
     if (status == AnimationStatus.completed) {
       if (_oldStatus == AnimationStatus.forward) {
         setState(() {
