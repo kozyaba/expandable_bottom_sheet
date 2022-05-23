@@ -194,6 +194,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
                 animation: _controller,
                 builder: (_, Widget? child) {
                   if (_controller.isAnimating) {
+                    print(_controller.value);
                     _positionOffset = _animationMinOffset +
                         _controller.value * _draggableHeight;
                   }
