@@ -302,7 +302,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
 
   void _animateOnIsAnimating() {
     if (_controller.isAnimating) {
-      _controller.stop();
+      //_controller.stop();
     }
   }
 
