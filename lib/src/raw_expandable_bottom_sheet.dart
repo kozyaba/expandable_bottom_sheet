@@ -276,7 +276,6 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         footerHeight -
         checkedPersistentContentHeight;
 
-    
     if (!isFirstBuild) {
       _positionOutOfBounds();
     } else {
@@ -378,9 +377,10 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         _animateToBottom();
       } else {
         final range = _maxOffset - _minOffset;
-        final brakePointTop = _minOffset + range * 0.3;
-        final brakePointBottom = _maxOffset - range * 0.3;
-        if ((_positionOffset! > brakePointTop && _positionOffset! < brakePointBottom) || _positionOffset! > brakePointBottom) {
+        final centerBrakePoint = _minOffset + range * 0.5;
+        // final brakePointTop = _minOffset + range * 0.3;
+        // final brakePointBottom = _maxOffset - range * 0.3;
+        if (_positionOffset! > centerBrakePoint) {
           _callCallbacks = true;
           _animateToBottom();
         } else {
