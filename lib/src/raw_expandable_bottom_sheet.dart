@@ -378,7 +378,7 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         _animateToBottom();
       } else {
         final range = _maxOffset - _minOffset;
-        if (_positionOffset! > (_minOffset + range * 0.3) && _positionOffset! > (_maxOffset - range * 0.3)) {
+        if (_positionOffset! > (_minOffset + range * 0.3) || _positionOffset! > (_maxOffset - range * 0.3)) {
           _callCallbacks = true;
           _animateToBottom();
         } else {
