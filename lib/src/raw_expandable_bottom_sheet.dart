@@ -288,10 +288,10 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
 
   void _positionOutOfBounds() {
     //print('_positionOutOfBounds');
-    print('_positionOffset: $_positionOffset');
-    print('_minOffset: $_minOffset');
-    print('_maxOffset: $_maxOffset');
-    print('--------------------------------');
+    // print('_positionOffset: $_positionOffset');
+    // print('_minOffset: $_minOffset');
+    // print('_maxOffset: $_maxOffset');
+    // print('--------------------------------');
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
@@ -308,7 +308,6 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
   }
 
   void _animateOnIsAnimating() {
-    print('_animateOnIsAnimating');
     if (_controller.isAnimating) {
       _controller.stop();
     }
