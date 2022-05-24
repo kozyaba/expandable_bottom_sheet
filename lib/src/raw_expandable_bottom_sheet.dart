@@ -283,17 +283,16 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
       setState(() {
         _positionOffset = _maxOffset;
         _draggableHeight = _maxOffset - _minOffset;
-        print('$_draggableHeight');
       });
     }
   }
 
   void _positionOutOfBounds() {
     //print('_positionOutOfBounds');
-    // print('_positionOffset: $_positionOffset');
-    // print('_minOffset: $_minOffset');
-    // print('_maxOffset: $_maxOffset');
-    // print('--------------------------------');
+    print('_positionOffset: $_positionOffset');
+    print('_minOffset: $_minOffset');
+    print('_maxOffset: $_maxOffset');
+    print('--------------------------------');
     if (_positionOffset! < _minOffset) {
       //the extend is larger than contentHeight
       _callCallbacks = false;
@@ -378,6 +377,11 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         _callCallbacks = true;
         _animateToBottom();
       } else {
+        // if (_positionOffset){
+
+        // } else {
+
+        // }
         if (_positionOffset == _maxOffset &&
             widget.onIsContractedCallback != null) {
           widget.onIsContractedCallback!();
