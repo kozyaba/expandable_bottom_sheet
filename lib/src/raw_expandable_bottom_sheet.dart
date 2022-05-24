@@ -377,11 +377,14 @@ class ExpandableBottomSheetState extends State<ExpandableBottomSheet>
         _callCallbacks = true;
         _animateToBottom();
       } else {
-        // if (_positionOffset){
-
-        // } else {
-
-        // }
+        final range = _maxOffset - _minOffset;
+        if (_positionOffset! > (_minOffset + range * 0.3) || _positionOffset! > (_maxOffset - range * 0.3)) {
+          _callCallbacks = true;
+          _animateToBottom();
+        } else {
+          _callCallbacks = true;
+          _animateToTop();
+        }
         if (_positionOffset == _maxOffset &&
             widget.onIsContractedCallback != null) {
           widget.onIsContractedCallback!();
